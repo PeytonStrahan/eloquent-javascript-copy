@@ -3,12 +3,12 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 function min(num1, num2) {
-  // if num1 is greater than num2
+  // check if num1 is greater than num2
   if (num1 > num2) {
-    // return the smaller num2
+    // return the smaller num2 if so
     return num2
-  } else { // else if num1 is lesser than or equal to num2
-    // return the smaller num1
+  } else { // else, check if num1 is lesser than or equal to num2
+    // return the smaller num1 if so
     return num1;
   }
 }
@@ -18,25 +18,56 @@ function min(num1, num2) {
 ////////////////////////////////////////////////////////////////////////////////
 
 function isEven(num) {
-  // return the result of checking if the input number is evenly divisibly by two or not
-  // I was considering using Math.abs(num) to handle negatives, but the function handles negatives fine without it.
-  return num % 2 === 0;
+  // ensure num is positive by using absolute value
+  num = Math.abs(num);
+  // check if num is 0 (even)
+  if (num === 0) {
+    // return true if so
+    return true;
+  } else if (num === 1) { // else, check if num is 1 (odd)
+    // return false if so
+    return false;
+  }
+  // if neither if statement hits a return statement, return the result of calling isEven with (num - 2)
+  return isEven(num - 2);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // countChars //////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function countChars() {
-
+function countChars(string, chara) {
+  // create a variable to hold the amount of characters counted
+  let chars = 0;
+  // loop through the string
+  for (let i = 0; i < string.length; i++) {
+    // check if the current character from the inputted string is equal to the inputted character (chara)
+    if (string[i] === chara) {
+      // increment chars by 1 if so
+      chars++;
+    }
+  }
+  // return chars
+  return chars;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // countBs /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function countBs() {
-
+function countBs(string) {
+  // create a variable to hold the amount of B's counted
+  let capBCount = 0;
+  // loop through the string
+  for (let i = 0; i < string.length; i++) {
+    // check if the current character from the inputted string is a B
+    if (string[i] === "B") {
+      // increment capBCount by 1 if so
+      capBCount++;
+    }
+  }
+  // return capBCount
+  return capBCount;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

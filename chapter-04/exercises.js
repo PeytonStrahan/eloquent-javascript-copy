@@ -2,8 +2,29 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range() {
+function range(start, end, step=1) {
+  // create an empty array to hold the output
+  const output = [];
 
+  if (start === end) { // check if start and end are the same value
+    // return the empty output array if so
+    return output;
+  }
+
+  if (step > 0) { // check if step is positive
+    for (let i = start; i <= end; i += step) { // loop through each number by counting up
+      // push the current number onto the output array
+      output.push(i);
+    }
+  } else if (step < 0) { // check if step is negative
+    for (let i = start; i >= end; i += step) { // loop through each number by counting down
+      // push the current number onto the output array
+      output.push(i);
+    }
+  }
+
+  // return the output array
+  return output;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
